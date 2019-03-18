@@ -168,7 +168,7 @@
 	.headerTabs{position: fixed; top: 1.2rem;opacity: 0; width: 100%; z-index: 101;height: 1rem;line-height: 1rem;box-sizing: border-box;background: #fff;display: flex;display: -webkit-flex;justify-content: space-around;-webkit-justify-content: space-around;align-items: center;
     -webkit-align-items: center;padding: 0 .2rem; box-shadow: 0 0 6px #dcc0de; -webkit-box-shadow: 0 0 6px #dcc0de;}
 	.headerTabs li {text-align: center;color: #353535;font-size: .28rem;}
-	.headerTabs li.active {color: #7E4395;opacity: 1;}
+	.headerTabs li.active {color: #F23030;opacity: 1;}
 	
 	
 	video {position: absolute;left: 0;top: 0;width: 100%;height: 100%;}
