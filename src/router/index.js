@@ -80,24 +80,24 @@ export default new Router({
       component: require('@/views/prices/index'),
     },
     {
-        path: '/404',
-        meta: {
-	        title: '404'
-	      },
-        component: NotFound,
-        name: '',
+      path: '/404',
+      meta: {
+        title: '404'
+      },
+      component: NotFound,
+      name: '',
     },
     {
-        path: '/500',
-        meta: {
-	        title: '500'
-	      },
-        component: errPage,
-        name: '',
+      path: '/500',
+      meta: {
+        title: '500'
+      },
+      component: errPage,
+      name: '',
     },
     {
-        path: '*',
-        redirect: { path: '/404' }
+      path: '*',
+      redirect: { path: '/404' }
     },
     //首页
     {
@@ -114,7 +114,7 @@ export default new Router({
       meta: {
         title: '分类'
       },
-      component: Category  
+      component: Category
     },
     {
       path: '/search',  //搜索
@@ -124,14 +124,14 @@ export default new Router({
       },
       component: Search
     },
-	{
-	path: '/pagelist',  //商品列表
-	name: 'pagelist',
-	meta: {
-		title: '商品列表'
-	},
-	component: PageList
-	},
+    {
+      path: '/pagelist',  //商品列表
+      name: 'pagelist',
+      meta: {
+        title: '商品列表'
+      },
+      component: PageList
+    },
     {
       path: '/detail',  //商品详情
       name: 'detail',
@@ -141,12 +141,12 @@ export default new Router({
       component: Detail
     },
     {
-    	path: '/commentPage',  //评价
+      path: '/commentPage',  //评价
       name: 'commentPage',
       meta: {
         title: '评价'
       },
-    	 component: CommentPage
+      component: CommentPage
     },
     {
       path: '/datum',  //投保人信息
@@ -196,7 +196,7 @@ export default new Router({
       },
       component: Yesbrand
     },
-    
+
     {
       path: '/identity',//校验身份证   添加
       name: 'identity',
