@@ -72,6 +72,7 @@ import tipPage from '@/views/widget/tipPage'
 Vue.use(Router)
 
 export default new Router({
+  // mode:'history',//默认没有，带有#  加上就去掉#
   routes: [
     {
       path: '/test',
