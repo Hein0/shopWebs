@@ -430,6 +430,7 @@
 
 
 		},
+		//监听
 		watch: {
 			goodImg(value) {
 				value.forEach(element => {
@@ -453,7 +454,10 @@
 		computed: {
 
 		},
-
+		//数据销毁
+		destroyed(){//离开页面关闭监听
+			window.removeEventListener('scroll',this.gdScroll)
+		},
 		updated: function() {
 			if(this.toTarget) {
 				this.goAnchor('.comment')
