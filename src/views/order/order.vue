@@ -1,7 +1,7 @@
 <template>
 	<div class="orderWrap">
 		<!--头部导航-->
-		<headBack :sY="true" :sS="true" :gwC="true" :msg="msgTitle"></headBack>
+		<headBack :fH="true" :sS="true" :gwC="true" :msg="msgTitle"></headBack>
 		<div class="orderHead">
 			<tab :animate="false" active-color='#0b9aff'>
 		      	<tab-item :selected="demo2 === item" v-for="(item, index) in list2" @click="demo2 = item" :key="index">{{item}}</tab-item>
