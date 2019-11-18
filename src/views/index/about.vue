@@ -1,5 +1,7 @@
 <template>
 	<div class="about">
+    <!--头部导航-->
+    <headBack :fH="true" :msg="msgTitle"></headBack>
 		<div class="about_centent" >
 			<img class="a-img" src="../../assets/about-1.png" alt="">
 			<p class="a-txt"> 仟度金融成立于2013年12月，总部设立在深圳，为全国客户提供消费金融和汽车金融服务。作为哈尔滨银行和众安保险的战略合作伙伴，未来将进一步开拓相关业务领域，提供综合金融解决方案。</p>
@@ -11,18 +13,20 @@
 
 <script>
 	import { CheckIcon  } from 'vux'
+  import headBack from '../../components/head-back'
 	export default {
 		name:'about',
 	    props: {
-	    	
+
 	    },
 	    components: {
-	    	CheckIcon 
+	    	CheckIcon,
+        headBack,//头部返回
 	    },
 	    data () {
       		return {
-      			
-      		}	
+            msgTitle:this.$route.meta.title,//路由标题
+      		}
 	    },
 	    //实例已经创建完成之后
 	  	created(){
@@ -34,13 +38,13 @@
 		},
 		//组件写入dom结构之前
 		mounted(){
-			
+
 		},
 		//方法对象
-    	methods:{
-    		
-    	}
-	}    
+    methods:{
+
+    }
+	}
 </script>
 
 <style scoped>

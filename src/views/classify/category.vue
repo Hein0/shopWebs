@@ -4,18 +4,18 @@
 			<div class="headerSite"></div>
 			<div class="headerFix" @click="goSearch">
 				<div class="search">
-					<p class="iconfont">请输入您想要的商品</p> 
+					<p class="iconfont">请输入您想要的商品</p>
 				</div>
 			</div>
 	    </div>
 	    <!--左边菜单-->
 	    <div class="category_content">
 	       <CategoryLeftView></CategoryLeftView>
-	       <CategoryRightView></CategoryRightView> 
+	       <CategoryRightView></CategoryRightView>
 	    </div>
-	    
+
 	</div>
-	
+
 </template>
 
 <script>
@@ -47,8 +47,8 @@
 		},
 		//计算属性
 		computed:{
-          
-          
+
+
         },
 		//方法
 		methods:{
@@ -56,7 +56,7 @@
 	       	goSearch(){
 	       		this.$router.push({path:'/search',query: {}});
 	       	}
-	        
+
 		}
 	}
 </script>
@@ -65,8 +65,8 @@
 	.clasHeader{position: relative;}
 	.headerSite{height:.9rem;}
 	.headerFix {position: fixed;top: 0;left: 0;z-index: 90;width: 10rem;border-bottom: 1px solid #ccc; overflow: hidden; background: #fff;}
-	.headerFix .search{    display: block;width: 9.5rem;height: .8rem; line-height: .6rem;margin: .16rem auto;text-align: center; border-radius: .06rem; background-color: #f2f2f2;}  
-	.headerFix .search .iconfont {display: inline-block; color: #666;text-align: center;padding-left:0.6rem;font-size: .3rem;background: url(../../assets/search.png) no-repeat left center;background-size: .5rem .5rem;}  
-	  
-	  
+	.headerFix .search{    display: block;width: 9.5rem;height: .8rem; line-height: .45rem;margin: .16rem auto;text-align: center; border-radius: .06rem; background-color: #f2f2f2;}
+	.headerFix .search .iconfont {display: inline-block; color: #666;text-align: center;padding-left:0.6rem;font-size: .3rem;background: url(../../assets/search.png) no-repeat left center;background-size: .5rem .5rem;}
+
+
 </style>

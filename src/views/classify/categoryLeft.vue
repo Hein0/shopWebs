@@ -2,19 +2,18 @@
     <div class="sectionLmuen">
     	<div class="sectionTouch">
     		<ul >
-    			<li class="heo actives" v-for="item in leftDatas">
-                	<router-link :to="{path:'/category',query:{id:item.id}}">
-                	{{item.category_name}}
-                	</router-link>
-                </li>
+    			<li class="heo" v-for="(item,index) in leftDatas" :key="index"  :class=" active==index ? 'actives' :'' " @click="gotoCate(index,item.id)">
+            {{item.category_name}}
+          </li>
 			</ul>
     	</div>
-    </div>    
+    </div>
 </template>
 <script>
 export default{
 	data(){
 		return{
+      active : 0,
 			leftDatas:[],
 			a:[{ id:"621",category_name:"咖啡"},
 					{ id:"627" ,category_name:"饮食"},
@@ -47,25 +46,26 @@ export default{
 			_this.leftDatas = _this.a;
 
 		},
+
+    //选中分类
+    gotoCate(index,id){
+      this.active = index;
+      this.$router.push({path:'/category',query:{id:id}})
+    }
+
 	}
 }
 </script>
 <style scoped>
-	.sectionLmuen {position: fixed;left: 0; top: 1.15rem;bottom: 1.48rem;z-index: 2;box-sizing: border-box;width: 2.21rem;overflow: auto;border-right: 1px solid #ccc;} 
-    .sectionLmuen::-webkit-scrollbar {display:none}
-    .sectionLmuen .sectionTouch{touch-action: none;} 
-	.sectionLmuen>div {height: 100%;}  
+	.sectionLmuen {position: fixed;left: 0; top: 1.15rem;bottom: 1.48rem;z-index: 2;box-sizing: border-box;width: 2.21rem;overflow: auto;border-right: 1px solid #ccc;}
+  .sectionLmuen::-webkit-scrollbar {display:none}
+  .sectionLmuen .sectionTouch{touch-action: none;}
+	.sectionLmuen>div {height: 100%;}
 	.sectionLmuen ul {width: 2.2rem;}
-	.sectionLmuen li {width: 2.16rem; height: 1.2rem;line-height: 1.2rem; border-left: .04rem solid transparent;font-size: .38rem;color: #333;text-align: center;}  
-	.heo {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}  
-	.sectionLmuen .sectionTouch ul li.actives {color: #0b9aff;border-left: .04rem solid #0b9aff;}  
-	  
-	  
-	  
+	.sectionLmuen li {width: 2.16rem; height: 1.2rem;line-height: 1.2rem; border-left: .04rem solid transparent;font-size: .38rem;color: #333;text-align: center;}
+	.heo {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+	.sectionLmuen .sectionTouch ul li.actives {color: #0b9aff;border-left: .04rem solid #0b9aff;}
+
+
+
 </style>
-
-
-
-
-
-

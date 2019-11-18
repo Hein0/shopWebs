@@ -40,7 +40,7 @@
 					<p class="p-l-txt">关于我们</p>
 				</router-link>
 			</li>
-			
+
 		</ul>
 		<div class="outRow">
 			<button class="out-button " >退出登录</button>
@@ -51,7 +51,7 @@
 
 <script>
 import { Tabbar, TabbarItem, Cell, Toast } from 'vux'
-import cookie from '../../config/util/cookie' 
+import cookie from '../../config/util/cookie'
 /*组件*/
 export default {
   	name: 'personal',
@@ -87,44 +87,50 @@ export default {
 	mounted(){
 
 		this.token = cookie.Cookie.get("token")?cookie.Cookie.get("token"):'';
-		
-		this.$http.post(this.$root.url+"member/getMemberInfo", {
-		}, {
-	        headers: {'Content-Type': 'application/json;charset=UTF-8',"token":this.token},
-	    }).then(function(data) {// 这里是处理正确的回调
-	        var datas=data.body.data;
-	        if(data.body.ask==0 && datas && datas.memberInfo){
-        		this.memberName = datas.memberInfo.memberName;
-        		this.avatarUrl = datas.memberInfo.avatarUrl?datas.memberInfo.avatarUrl:this.avatarUrlDefault;
-        		this.myQcodeUrl = {path:'/myQcode',query: {phoneNo:datas.memberInfo.phoneNo}};
-        		this.isBrjqStaff = datas.memberInfo.jobNumber?true:false;
-        		//console.log(this.myQcodeUrl);
-    		}else{
-				this.showtext = '获取数据失败';
-	            this.toastshow = true;
-    		}
-	    }, function(error) {// 这里是处理错误的回调
-	        console.log(error)
-	    });
-	    //请求数据统计
-	    this.$http.post(this.$root.url+"order/countAllCase", {
-	    	"orderStatus":0
-		}, {
-	        headers: {'Content-Type': 'application/json;charset=UTF-8',"token":this.token},
-	    }).then(function(data) {// 这里是处理正确的回调
-	        var datas=data.body.data;
-	        if(data.body.ask==0&&datas){
-        		this.orderCount = datas;
-    		}else{
-				this.showtext = '获取数据失败';
-	            this.toastshow = true;
-    		}
-	    }, function(error) {// 这里是处理错误的回调
-	        console.log(error)
-	    });
+    // this.getUserInfo();
+
 	},
 	//方法
     methods:{
+
+      getUserInfo(){
+        this.$http.post(this.$root.url+"member/getMemberInfo", {
+        }, {
+              headers: {'Content-Type': 'application/json;charset=UTF-8',"token":this.token},
+          }).then(function(data) {// 这里是处理正确的回调
+              var datas=data.body.data;
+              if(data.body.ask==0 && datas && datas.memberInfo){
+                this.memberName = datas.memberInfo.memberName;
+                this.avatarUrl = datas.memberInfo.avatarUrl?datas.memberInfo.avatarUrl:this.avatarUrlDefault;
+                this.myQcodeUrl = {path:'/myQcode',query: {phoneNo:datas.memberInfo.phoneNo}};
+                this.isBrjqStaff = datas.memberInfo.jobNumber?true:false;
+                //console.log(this.myQcodeUrl);
+            }else{
+            this.showtext = '获取数据失败';
+                  this.toastshow = true;
+            }
+          }, function(error) {// 这里是处理错误的回调
+              console.log(error)
+          });
+        //请求数据统计
+        this.$http.post(this.$root.url+"order/countAllCase", {
+          "orderStatus":0
+        }, {
+            headers: {'Content-Type': 'application/json;charset=UTF-8',"token":this.token},
+        }).then(function(data) {// 这里是处理正确的回调
+            var datas=data.body.data;
+            if(data.body.ask==0&&datas){
+              this.orderCount = datas;
+          }else{
+          this.showtext = '获取数据失败';
+                this.toastshow = true;
+          }
+        }, function(error) {// 这里是处理错误的回调
+            console.log(error)
+        });
+      },
+
+
 	  	presolink(){
             this.$router.push({path:'/message',query: {}})//其中login是你定义的一个路由模块
 	  	}
@@ -180,8 +186,8 @@ export default {
 		position:relative;
 		border-top: 1px solid #eee;
 		-moz-box-sizing: border-box;
-     	-webkit-box-sizing: border-box; 
-     	box-sizing: border-box; 
+     	-webkit-box-sizing: border-box;
+     	box-sizing: border-box;
 		li{
 			width:33%;
 			float:left;
@@ -209,7 +215,7 @@ export default {
 	.p-links:after{content: " ";clear: both;display: block;}
 	.outRow{width: 7rem;margin: 1rem 1.5rem 0rem;}
 	.outRow .out-button{display: block;width: 100%;height: 1.04rem;line-height: 1.04rem;background-color: #e6e6e6 ;color: #666;font-size: .42rem;border-radius:0.52rem;}
-	
+
 </style>
 <style>
 	.list_link .weui-cell{padding:15px;}
