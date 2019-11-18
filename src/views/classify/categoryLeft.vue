@@ -64,7 +64,7 @@ export default{
 	.sectionLmuen ul {width: 2.2rem;}
 	.sectionLmuen li {width: 2.16rem; height: 1.2rem;line-height: 1.2rem; border-left: .04rem solid transparent;font-size: .38rem;color: #333;text-align: center;}
 	.heo {overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
-	.sectionLmuen .sectionTouch ul li.actives {color: #0b9aff;border-left: .04rem solid #0b9aff;}
+	.sectionLmuen .sectionTouch ul li.actives {color: #0b9aff;border-left: .04rem solid #0b9aff;background:#fff}
 
 
 
